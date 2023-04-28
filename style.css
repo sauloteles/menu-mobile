@@ -1,0 +1,125 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.header{
+    box-sizing: border-box;
+    padding: 1rem;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(127, 255, 212, 0.605);
+    
+}
+
+.header__nav{
+
+}
+.header__links{
+    list-style: none;
+    display: flex;
+    gap: 0.7rem;
+}
+.header__link{
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+
+}
+.header--logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header--logo:hover{
+    
+    background-color: white;
+}
+
+li:hover{
+    background-color: white;
+}
+
+.header__btn{
+    display: none ;
+}
+
+@media screen and (max-width:600px) {
+    .header__btn{
+        display: block;
+    }
+
+    .header__links{
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        background-color: rgba(127, 255, 212, 0.605);
+        z-index: 1000;
+        height: 0;
+        transition: .5s;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    
+    .header__nav.active .header__links{
+        overflow-y: auto;
+        height: calc( 100vh - 70px );
+        visibility: visible;
+
+    }
+
+    li{
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0,0,0,.05);
+    }
+
+    .header__btn{
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: 0.5rem;
+    }
+
+    .menu--hamburgue{
+        color: black;
+        border-top: 2px solid;
+        width: 20px;
+    }
+
+    .menu--hamburgue::after,.menu--hamburgue::before{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+
+    }
+    
+    .header__nav.active .menu--hamburgue{
+        border-top-color: transparent;
+    }
+
+    .header__nav.active .menu--hamburgue::after{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+    .header__nav.active .menu--hamburgue::before{
+        transform: rotate(135deg);
+
+
+    }
+    
+}
